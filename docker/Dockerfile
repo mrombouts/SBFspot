@@ -89,4 +89,5 @@ RUN chmod u+x /start.sh \
       
 USER $user
 
-ENTRYPOINT ["/start.sh"]
+#ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
