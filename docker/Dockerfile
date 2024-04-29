@@ -72,6 +72,7 @@ RUN apk --no-cache add boost-date_time bluez-libs libstdc++ sqlite-libs tzdata \
 # copy SBFspot
 COPY --from=builder $sbfspot_home $sbfspot_home
 COPY ./start.sh /
+COPY ./debug.sh /
 
 # copy tools
 COPY --from=builder /usr/bin/mysql /usr/bin/mysql
@@ -86,8 +87,11 @@ RUN chmod g+w /var/log \
       
 RUN chmod u+x /start.sh \
       && chown $user:$group /start.sh
+
+RUN chmod u+x /debug.sh \
+      && chown $user:$group /debug.sh
       
 USER $user
 
 #ENTRYPOINT ["/start.sh"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/debug.sh"]

@@ -2,7 +2,8 @@ version: '3'
 
 services:
     sbfspot:
-        image: sbfspot/sbfspot:latest
+      #image: sbfspot/sbfspot:latest
+        image: sbfspot
         network_mode: host
         volumes:
             - ~/sbfspot/etc:/etc/sbfspot
