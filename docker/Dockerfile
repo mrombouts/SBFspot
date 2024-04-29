@@ -93,5 +93,5 @@ RUN chmod u+x /debug.sh \
       
 USER $user
 
-#ENTRYPOINT ["/start.sh"]
-ENTRYPOINT ["/debug.sh"]
+ENTRYPOINT ["/start.sh"]
+#ENTRYPOINT ["/debug.sh"]
