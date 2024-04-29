@@ -75,7 +75,7 @@ readUploadConfig() {
 
 checkSBFConfig() {
     ERROR_FLAG=0
-    if `-d "$confdir "`; then
+    if [ -d "$confdir" ]; then
         if [ -r $confdir/SBFspot.cfg ]; then
             readConfig
             if [ -n "$CSV_STORAGE" ] && [ $CSV_STORAGE -eq 1 ]; then
@@ -189,7 +189,7 @@ checkSBFConfig() {
  
 checkSBFUploadConfig() {
     ERROR_FLAG=0
-    if `mount | grep -q -e "$confdir "`; then
+    if [ -d "$confdir" ]; then
         if [ -r $confdir/SBFspotUpload.cfg ]; then
             readUploadConfig
             tempValue=`getUploadConfigValue PVoutput_SID`
